@@ -67,7 +67,51 @@ export type Database = {
       }
     }
     Views: {
-      [_ in never]: never
+      products_public: {
+        Row: {
+          brand: string | null
+          category: string | null
+          created_at: string | null
+          description: string | null
+          id: string | null
+          image_url: string | null
+          locality: string | null
+          name: string | null
+          price: number | null
+          rating: number | null
+          seller_id: string | null
+          seller_name: string | null
+        }
+        Insert: {
+          brand?: string | null
+          category?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string | null
+          image_url?: string | null
+          locality?: string | null
+          name?: string | null
+          price?: number | null
+          rating?: number | null
+          seller_id?: string | null
+          seller_name?: string | null
+        }
+        Update: {
+          brand?: string | null
+          category?: string | null
+          created_at?: string | null
+          description?: string | null
+          id?: string | null
+          image_url?: string | null
+          locality?: string | null
+          name?: string | null
+          price?: number | null
+          rating?: number | null
+          seller_id?: string | null
+          seller_name?: string | null
+        }
+        Relationships: []
+      }
     }
     Functions: {
       [_ in never]: never
