@@ -16,10 +16,10 @@ export function SiteContact() {
             </p>
 
             <div className="mt-10 space-y-4">
-              <ContactRow icon={<Mail className="h-4 w-4" />} label="hello@maaya.in" />
+              <ContactRow icon={<Mail className="h-4 w-4" />} label="hello@maaya.in(invalid)" />
               <ContactRow
                 icon={<MapPin className="h-4 w-4" />}
-                label="Bandra West, Mumbai 400050"
+                label="Bandra West, Mumbai 400XXXX"
               />
             </div>
 
@@ -33,19 +33,19 @@ export function SiteContact() {
           <div className="md:col-span-6 grid sm:grid-cols-2 gap-8">
             <FooterCol
               title="About the project"
-              body="Maaya started in 2025 as a weekend experiment between three Mumbaikars tired of WhatsApp-only bookings. Today it's a small, self-funded marketplace with a quiet community of stylists and clients."
+              body="Maaya is a new age beauty assisstance.Tired of scrolling for hours?comparing prices?scared before experimenting? Dont Worry, Maaya got you covered. "
             />
             <FooterCol
               title="The owners"
-              body="Built by Aanya Mehta (design), Rohan Iyer (engineering) and Tara Shah (community) — all based in Mumbai. We answer our own emails."
+              body="Built by Simmar , to make your beauty journey very cutesy!very Demure!and very Mindful!"
             />
             <FooterCol
-              title="For salons"
-              body="Listing on Maaya is invite-only and free for the first year. Tell us about your studio and we'll come visit."
+              title="community"
+              body="Make yourselves at home with Maaya because now your beauty buddies are just a click away!! Talk to our community section and get some realtime advice! That too for free"
             />
             <FooterCol
-              title="Press & partners"
-              body="For partnerships, press kits or speaking, write to us at partners@maaya.in. We love a good collaboration."
+              title="we support locals"
+              body="Find the underdogs here!! Get access to the local vendors and salons based on your locality at just oe click. "
             />
           </div>
         </div>
