@@ -99,6 +99,11 @@ function ProductsPage() {
     let unsub: (() => void) | undefined;
     let cancelled = false;
     setLoading(true);
+    // Safety fallback: if Firestore doesn't respond in 2.5s, stop the
+    // skeleton and show the sample catalogue so the page is usable.
+    const fallback = window.setTimeout(() => {
+      if (!cancelled) setLoading(false);
+    }, 2500);
     (async () => {
       try {
         const { collection, onSnapshot, orderBy, query } = await import(
@@ -129,6 +134,7 @@ function ProductsPage() {
     })();
     return () => {
       cancelled = true;
+      window.clearTimeout(fallback);
       unsub?.();
     };
   }, []);
