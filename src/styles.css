@@ -1,0 +1,190 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-moss: var(--moss);
+  --color-darkgreen: var(--darkgreen);
+  --color-midnight: var(--midnight);
+  --color-beige: var(--beige);
+  --color-rosy: var(--rosy);
+  --color-cream: var(--cream);
+  --font-display: "Cormorant Garamond", serif;
+  --font-body: "Manrope", sans-serif;
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand palette */
+  --moss: oklch(0.72 0.07 130);          /* moss green pastel */
+  --darkgreen: oklch(0.42 0.06 145);     /* dark green */
+  --midnight: oklch(0.28 0.04 165);      /* midnight green */
+  --beige: oklch(0.94 0.02 80);          /* beige */
+  --cream: oklch(0.97 0.015 85);
+  --rosy: oklch(0.74 0.06 30);           /* rosy brown */
+
+  --background: var(--cream);
+  --foreground: oklch(0.25 0.03 160);
+  --card: oklch(0.99 0.01 80);
+  --card-foreground: var(--foreground);
+  --popover: var(--card);
+  --popover-foreground: var(--foreground);
+  --primary: var(--darkgreen);
+  --primary-foreground: var(--cream);
+  --secondary: var(--moss);
+  --secondary-foreground: var(--midnight);
+  --muted: oklch(0.92 0.015 90);
+  --muted-foreground: oklch(0.45 0.03 150);
+  --accent: var(--rosy);
+  --accent-foreground: var(--cream);
+  --destructive: oklch(0.55 0.18 30);
+  --destructive-foreground: var(--cream);
+  --border: oklch(0.86 0.02 95);
+  --input: oklch(0.9 0.015 95);
+  --ring: var(--moss);
+  --chart-1: var(--moss);
+  --chart-2: var(--darkgreen);
+  --chart-3: var(--rosy);
+  --chart-4: var(--beige);
+  --chart-5: var(--midnight);
+  --sidebar: var(--cream);
+  --sidebar-foreground: var(--foreground);
+  --sidebar-primary: var(--darkgreen);
+  --sidebar-primary-foreground: var(--cream);
+  --sidebar-accent: var(--moss);
+  --sidebar-accent-foreground: var(--midnight);
+  --sidebar-border: var(--border);
+  --sidebar-ring: var(--moss);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
+
+@utility container-x {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  max-width: 1280px;
+}
+
+@keyframes ken-burns {
+  0% { transform: scale(1.15) translate(2%, 1%); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: scale(1) translate(0, 0); opacity: 1; }
+}
+
+@keyframes rise-in {
+  0% { opacity: 0; transform: translateY(28px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@utility animate-ken-burns {
+  animation: ken-burns 3s ease-out both;
+}
+
+@utility animate-rise-in {
+  animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@utility reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@utility reveal-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@utility btn-shine {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+@utility btn-shine-hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 12px 28px -12px rgba(0,0,0,0.35);
+}
+
+/* Hide Google Translate widget UI while keeping the translation engine active */
+#goog-gt-tt,
+#goog-gt-tt *,
+.goog-te-banner-frame,
+.goog-te-banner-frame *,
+.goog-te-balloon-frame,
+.goog-te-balloon-frame *,
+.goog-tooltip,
+.goog-tooltip *,
+.goog-te-menu-frame,
+.goog-te-menu-frame *,
+.goog-te-menu-value,
+.goog-te-menu-value * {
+  display: none !important;
+}
+
+.goog-te-banner-frame.skiptranslate,
+.goog-te-gadget-simple,
+.goog-te-gadget-icon,
+.goog-te-gadget > div,
+.goog-te-gadget > span,
+.goog-te-combo,
+.goog-te-menu,
+.goog-te-menu2,
+#google_translate_element {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}
+
+.goog-text-highlight,
+font font {
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.translated-ltr body,
+.translated-rtl body {
+  top: 0 !important;
+}
+
+translate {
+  display: none !important;
+}
+
