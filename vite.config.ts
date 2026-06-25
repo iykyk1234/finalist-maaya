@@ -13,3 +13,8 @@ export default defineConfig({
     server: { entry: "server" },
   },
 });
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  base: "/finalist-maaya/",
+});
